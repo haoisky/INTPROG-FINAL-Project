@@ -1,0 +1,223 @@
+body {
+    margin: 0;
+    font-family: 'Azeret Mono', sans-serif;
+    background-image: url('../image/backgrounds/cloudy.jpg'); /* Ensure correct path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 240px;
+    height: 300px;
+    margin-left: 40px;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card, .weatherForm {
+    transition: visibility 0.3s ease, opacity 0.3s ease;
+}
+
+.card h1 {
+    font-size: 16px;
+    margin: 5px 0;
+    font-family: 'Azeret Mono', sans-serif;
+}
+
+.card p {
+    margin-top: 2px;
+    margin-bottom: -40px;
+    font-family: 'Azeret Mono', sans-serif;
+}
+
+.weatherForm {
+    display: flex;
+    flex-direction: row;
+    top: 10px;
+    gap: 5px;
+    margin-top: -380px;
+}
+
+/* Updated for Get Weather Button */
+.get-weather-btn {
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    background-color: #7e4d1b;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+    height: 27px;
+    transition: background-color 0.3s ease;
+    width: 88px;
+    margin-bottom: -30px;
+    margin-top: 10px;
+}
+
+.get-weather-btn:hover {
+    background-color: #45a049;
+}
+
+.cityInput {
+    width: 150px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 40px;
+    margin-bottom: -30px;
+    margin-top: 10px;
+}
+
+.change-location-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.change-location-btn:hover {
+    background-color: #45a049;
+}
+
+.change-location-btn {
+    margin-top: 10px;
+    background-color: #7e4d1b;
+}
+
+.forecast-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 80px;
+    width: 100%;
+}
+
+.forecast-item {
+    width: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+}
+
+.forecast-item p {
+    margin: 2px 0;
+    font-size: 10px;
+}
+
+/* Highlighted Weather Section */
+.highlighted-weather {
+    text-align: center;
+}
+
+.weather-emoji {
+    font-size: 98px;
+    margin-top: -20px;
+    margin-bottom: 8px; /* Reduce space below the emoji */
+}
+
+.highlighted-temp {
+    font-size: 18px;
+    margin-top: -30px; /* Tighter spacing between temperature and condition */
+    font-weight: bold;
+}
+
+.highlighted-condition {
+    font-size: 16px;
+    margin-bottom: -120px;
+}
+
+/* Forecast Section */
+.forecast-item {
+    text-align: center;
+}
+
+.forecast-emoji {
+    font-size: 24px; /* Adjusted size for better visibility */
+    margin: 5px 0;
+}
+
+/* CSS for the Toast notification */
+.toast {
+    position: fixed;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeInOut 3s forwards;
+}
+
+.error {
+    background-color: #f44336;
+}
+
+.success {
+    background-color: #4CAF50;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.logoutToast {
+    visibility: hidden;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px dotted #45a049;
+    padding: 14px;
+    position: fixed;
+    z-index: 1;
+    left: 38%;
+    top: 160px;
+    font-size: 17px;
+}
+
+.logoutToast.show {
+    visibility: visible;
+}
+
+/* Style for confirmation buttons inside the toast */
+.logoutToast .btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.logoutToast .confirm-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.logoutToast .cancel-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}

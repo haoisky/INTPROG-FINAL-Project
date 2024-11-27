@@ -1,0 +1,842 @@
+* {
+    font-weight: 400;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+body {
+    font-family: 'Pixelify Sans', sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image: url(../image/backgrounds/bg.jpg); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.container .logo-image {
+    width: 80%;
+    height: auto;
+    margin-right: -50px;
+    margin-top: -80px;
+}
+
+.mainBtn {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 20px 60px;
+    padding: 15px;
+    border-radius: 30px;
+    align-items: center;
+    background-color: #422405;
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.mainBtn:hover {
+    background-color: transparent;
+    color: white;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #7e4d1b;
+    padding: 40px;
+    border-radius: 30px;
+    width: 300px;
+    height: auto;
+    align-items: center;
+    position: relative;
+    color: white;
+    border: 25px solid #422405;
+}
+
+.modal .modal-content form input {
+    display: flex;
+    padding: 8px 13px;
+    margin: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #d9c9b9;
+    letter-spacing: normal;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.modal .modal-content form label {
+    padding: 8px 13px;
+    letter-spacing: normal;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.modal .modal-content form p{
+    padding: 8px 13px;
+    margin: 8px auto;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: normal;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.modal .modal-content form p strong{
+    color: #422405;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: normal;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.modal .modal-content form p strong:hover{
+    cursor: pointer;
+    color: #d9c9b9;
+}
+
+.modal .modal-content h3 {
+    text-align: center;
+    margin-top: -40px;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.modal .modal-content form #signin {
+    margin-top: -10px;
+}
+
+#sign_inBtn {
+    display: block;
+    width: 330px;
+    margin: 15px auto; 
+    padding: 8px 13px;
+    border-radius: 30px;
+    background-color: #422405;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: normal;
+    font-size: 1.5rem;
+}
+
+#sign_inBtn:hover {
+    background-color: transparent;
+}
+
+#sign_inBtn {
+    text-decoration: none;
+    color: white;
+    letter-spacing: normal;
+}
+
+#sign_upBtn {
+    display: block;
+    width: 330px;
+    margin: 15px auto; 
+    padding: 8px 13px;
+    border-radius: 30px;
+    background-color: #422405;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: normal;
+    font-size: 1.5rem;
+}
+
+#sign_upBtn:hover {
+    background-color: transparent;
+}
+
+#sign_upBtn {
+    text-decoration: none;
+    color: white;
+    letter-spacing: normal;
+}
+
+#signupForm {
+    margin-top: -20px;
+}
+
+.close {
+    position: relative;
+    font-size: 2rem;
+    color: black;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: -40px 0 0 340px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Make it circular */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.close:hover {
+    background-color: #422405; /* Background color on hover */
+}
+
+/* About Modal */
+
+.modal .about-modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #7e4d1b;
+    padding: 50px;
+    border-radius: 30px;
+    width: 300px; /* Fixed width */
+    height: 300px; /* Fixed height for the modal */
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Prevent the modal from stretching */
+    color: white;
+    border: 10px solid #422405;
+    text-align: justify;
+}
+
+.modal .about-modal-content .about-content {
+    margin: -25px;
+    padding-right: 5px;
+}
+
+.modal .about-modal-content h3 {
+    text-align: center;
+    margin-top: -25px;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+/* Content inside About modal should be scrollable */
+.modal .about-modal-content .about-content {
+    overflow-y: auto; /* Enable scrolling */
+    max-height: 100%; /* Allow content to take up the full height of the modal */
+    padding-right: 20px; /* Prevent scrollbar overlap */
+}
+
+/* Customize the scrollbar for the modal content */
+.about-content {
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100%; /* Allow content to take up the full height of the modal */
+    padding-right: 0px; /* Remove regular padding to allow space for the scrollbar */
+    margin-right: -10px; /* Move the scrollbar closer to the edge */
+}
+
+/* Style the scrollbar for Webkit browsers (Chrome, Safari) */
+.about-content::-webkit-scrollbar {
+    width: 8px; /* Thinner scrollbar */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Track (background) of the scrollbar */
+.about-content::-webkit-scrollbar-track {
+    background-color: #ccc; /* Light background to match modal */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Handle (thumb) of the scrollbar */
+.about-content::-webkit-scrollbar-thumb {
+    background-color: #422405; /* Same color as the modal */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Optional: Hover effect for the scrollbar thumb */
+.about-content::-webkit-scrollbar-thumb:hover {
+    background-color: #9e7f3d; /* Slightly lighter on hover */
+}
+
+/* How to play Modal */
+
+.modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #7e4d1b;
+    padding: 50px;
+    border-radius: 30px;
+    width: 300px; /* Fixed width */
+    height: 300px; /* Fixed height for the modal */
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Prevent the modal from stretching */
+    color: white;
+    border: 10px solid #422405;
+    text-align: justify;
+}
+
+.modal .modal-content .how-to-play-content {
+    margin: -25px;
+    padding-right: 5px;
+}
+
+.modal .modal-content h3 {
+    text-align: center;
+    margin-top: -25px;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+/* Content inside About modal should be scrollable */
+.modal .modal-content .how-to-play-content {
+    overflow-y: auto; /* Enable scrolling */
+    max-height: 100%; /* Allow content to take up the full height of the modal */
+    padding-right: 20px; /* Prevent scrollbar overlap */
+}
+
+/* Customize the scrollbar for the modal content */
+.how-to-play-content {
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100%; /* Allow content to take up the full height of the modal */
+    padding-right: 0px; /* Remove regular padding to allow space for the scrollbar */
+    margin-right: -10px; /* Move the scrollbar closer to the edge */
+}
+
+/* Style the scrollbar for Webkit browsers (Chrome, Safari) */
+.how-to-play-content::-webkit-scrollbar {
+    width: 8px; /* Thinner scrollbar */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Track (background) of the scrollbar */
+.how-to-play-content::-webkit-scrollbar-track {
+    background-color: #ccc; /* Light background to match modal */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Handle (thumb) of the scrollbar */
+.how-to-play-content::-webkit-scrollbar-thumb {
+    background-color: #422405; /* Same color as the modal */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Optional: Hover effect for the scrollbar thumb */
+.how-to-play-content::-webkit-scrollbar-thumb:hover {
+    background-color: #9e7f3d; /* Slightly lighter on hover */
+}
+
+/* Home CSS */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* User info aligned to the top right */
+.user-info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: normal;
+}
+
+.user-info #user-icon {
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+}
+
+.user-info h3 {
+    font-size: 1.4rem;
+    color: white;
+    letter-spacing: normal;
+}
+
+/* Centering logo and button */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;    
+}
+
+.hli {
+    margin-top: -80px;
+    margin-right: -50px;
+    margin-left: 20px;
+}
+
+.gardenBtn {
+    font-size: 1.6rem;
+    cursor: pointer;    
+    width: 220px;
+    margin: 0 60px;
+    padding: 13px;
+    border-radius: 30px;
+    background-color: #422405;
+    color: white;
+    letter-spacing: normal;
+}
+
+.gardenBtn:hover {
+    background-color: transparent;
+    color: white;
+}
+
+
+/* Plants CSS */
+
+/* Basic container layout */
+.plants-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+/* Centered heading for "Choose your first plant" */
+.choose-plant {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #422405;
+    color: white;
+    letter-spacing: 1px;
+}
+
+/* Flex layout for plant boxes */
+.plants {
+    display: flex;
+    gap: 35px; /* Space between plant boxes */
+    justify-content: center;
+}
+
+/* Outer plant box styling */
+.plant-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 125px; /* Adjust width as needed */
+    height: 175px;
+    background-color: #422405;
+}
+
+/* Inner box styling */
+.inner-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #5a3d27; /* Slightly lighter than the outer box */
+    width: 100%;
+    height: 85%;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+    margin-top: -30px;
+}
+
+/* Plant image styling */
+.plant-image {
+    font-size: 135px; /* Adjust image size */
+    width: 115px;
+    height: 135px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+
+.plant-image:hover {
+    transform: scale(1.1); /* Enlarges the element by 10% */
+}
+
+/* Plant name styling */
+.plant-name {
+    font-size: 1.4em;
+    color: #fff;
+    margin-top: 0;
+    letter-spacing: normal;
+}
+
+/* Garden CSS */
+
+/* Body and Main Content */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lilita One', sans-serif;
+    position: relative;
+    min-height: 100vh; /* Ensure full height */
+}
+
+.main-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.game-container {
+    background-image: url(../image/backgrounds/cloudy.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lilita One', sans-serif;
+}
+
+/* Sidebar Menu */
+.menu-bar {
+    display: none; /* Hidden initially */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 225px;
+    height: 100%;
+    background-color: rgba(233, 228, 228, 0.5);
+    color: black;
+    padding-top: 10px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    letter-spacing: normal;
+}
+
+.menu-bar a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu-bar h1 {
+    font-size: 1.8rem;
+    margin-bottom: 50px;
+    text-align: center;
+    letter-spacing: normal;
+    cursor: pointer;
+    color: white;
+    text-shadow: 
+        -2px -2px 0 black, /* Top left shadow */
+         2px -2px 0 black, /* Top right shadow */
+        -2px  2px 0 black, /* Bottom left shadow */
+         2px  2px 0 black; /* Bottom right shadow */
+}
+
+.menu-bar h1:hover {
+    transform: scale(1.1); /* Enlarges the element by 10% */
+}
+
+.menu-bar i {
+    display: flex;
+    flex-direction: column;
+    font-size: 28px;
+    margin-left: 50px;
+    margin-bottom: 0;
+    align-items: flex-start;
+    padding-left: 20px;
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px -40px;
+    font-size: 1.4rem;
+    padding: 20px 60px;
+    cursor: pointer;
+    letter-spacing: normal;
+    transition: background-color 0.2s;
+}
+
+.menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 60px;
+}
+
+.menu-item.active {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 60px;
+}
+
+.logout {
+    margin-top: 100px;
+}
+
+/* User Info Icon */
+.users-info {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+    letter-spacing: normal;
+    color: white;
+    text-shadow: 
+        -2px -2px 0 black, /* Top left shadow */
+        2px -2px 0 black, /* Top right shadow */
+        -2px  2px 0 black, /* Bottom left shadow */
+        2px  2px 0 black; /* Bottom right shadow */
+}
+
+.users-info:hover {
+    transform: scale(1.1); /* Enlarges the element by 10% */
+}
+
+.users-info h3 {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
+#user-icon {
+    font-size: 2.5rem;
+}
+
+/* Logo (Upper Left Corner) */
+.logo {
+    position: fixed; /* Fix the logo in the top-left corner */
+    top: 10px; /* Align with users-info */
+    left: 20px; /* Add some space from the edge */
+    z-index: 1001; /* Ensure it stays above other elements */
+}
+
+.logo img {
+    width: 80px; /* Set logo size */
+    height: 80px;
+    display: block; /* Ensure no extra margin/padding */
+}
+
+/* Status Bars (Sun and Water at Top Center) */
+.status-bars {
+    position: absolute;
+    top: 10px; /* Adjust top spacing */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between bars */
+    z-index: 100; /* Ensure it's above other elements */
+}
+
+.bar {
+    text-align: center;
+    width: 150px;
+    margin-top: 40px;
+}
+
+.bar img {
+    position: absolute;
+    margin-left: -80px;
+    margin-top: -9px;
+    width: 40px;
+    height: 40px;
+    z-index: 2; /* Icons should be in front of the progress bar */
+    overflow: hidden;
+}
+
+.bar img:hover {
+    transform: scale(1.1); /* Enlarges the element by 10% */
+}
+
+.bar-label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    margin-left: 30px;
+    color: white;
+    text-align: left;
+    text-shadow: 
+        -1px -1px 0 black, /* Top left shadow */
+         1px -1px 0 black, /* Top right shadow */
+        -1px  1px 0 black, /* Bottom left shadow */
+         1px  1px 0 black; /* Bottom right shadow */
+}
+
+/* Container for each progress bar */
+.progress {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background-color: #ccc;
+    border: 2px solid black; /* Black outline */
+    border-radius: 12px;
+    overflow: hidden; /* Ensures the progress bar stays inside */
+    z-index: 1; /* Progress bar behind icons */
+}
+
+/* Fill the progress bar */
+.progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%; /* Adjust this dynamically with JS */
+    background-color: yellow; /* Sunlight color */
+    transition: width 0.5s ease;
+    border-radius: 25px; /* Keeps rounded corners */
+    z-index: 1; /* Progress bar should be behind icons */
+}
+
+.progress.water .progress-fill {
+    background-color: rgb(60, 60, 240); /* Water color */
+}
+
+/* Plant Phase (Seedling and Pot at Bottom Center) */
+.plant-phase {
+    position: absolute;
+    bottom: 0; /* Align to the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align seedling above pot */
+}
+
+.plant-container {
+    position: relative;
+}
+
+.plant-stage {
+    position: absolute;
+    bottom: 95px; /* Adjust to appear above pot */
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.rose {
+    height: 145px;
+    margin-bottom: -5px;
+}
+
+.pot-image {
+    position: relative;
+    z-index: 1;
+    width: 300px; /* Make pot larger */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: -40px
+}
+
+/* Plant Care */
+
+.plant-care {
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    height: 80px;
+    margin-left: 40px;
+    margin-bottom: -500px;    
+}
+
+/* Controls Container */
+.plant-care .controls {
+    border: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center both buttons */
+    align-items: center;
+    padding: 5px 0;
+    gap: 5px;
+}
+
+/* Buttons */
+.controls .icon-btn {
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+}
+
+/* Images Inside Buttons */
+.controls .icon-btn img {
+    width: 120px;
+    height: 120px;
+}
+
+.controls .icon-btn:hover {
+    transform: scale(1.1); /* Enlarges the element by 10% */
+}
+
+/* Button Labels */
+.btn-label {
+    position: absolute;
+    bottom: -346px; /* Adjust the label position to appear below icons */
+    text-align: center;
+    font-size: 17px;
+    color: white;
+    z-index: 15;
+    text-shadow: 
+        -1px -1px 0 black, /* Top left shadow */
+        1px -1px 0 black, /* Top right shadow */
+        -1px  1px 0 black, /* Bottom left shadow */
+        1px  1px 0 black; /* Bottom right shadow */
+}
+
+.water-label {
+    left: 85px; /* Align with the Watering Can */
+}
+
+.fertilizer-label {
+    right: 32px; /* Align with the Fertilizer */
+}
+
+.left-sidebar {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align everything to the left */
+    position: fixed; /* Fix the sidebar to prevent movement */
+    left: 10px; /* Add some space from the edge */
+    top: 5px;
+    gap: 115px;
+    z-index: 10; /* Ensure it stays above other elements */
+    margin-top: 140px;
+}
+
+.card {
+    width: 240px; /* Keep a consistent width */
+    margin-bottom: 0;
+    font-family: 'Azeret Mono', sans-serif;
+}
+
+.plant-care {
+    display: flex;
+    flex-direction: row; /* Align buttons in a row */
+    gap: 10px; /* Add space between buttons */
+    margin-top: -100px;
+}
+
+.card {
+    transition: all 0.3s ease-in-out; /* Smooth animations */
+    font-family: 'Azeret Mono', sans-serif;
+}
